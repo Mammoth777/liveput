@@ -5,6 +5,18 @@
 执行过程截图:
 ![preview](./preview.jpg)
 
+```sequence
+Note left of Watcher: 0. 同步Server文件变化？\nemmm还没想好
+Watcher -> Client : 1. 文件变化通知
+Client  -> Client : 2. 过滤忽略文件
+Client  -> Server : 3. 文件变化通知
+Server  -> Server : 4. 文件锁查询
+Server  -> Client : 5. 确认变化通知
+Client  ->> Server : 6. 文件内容传输
+Server  -> Server : 7. 变更文件
+Server  -> Client : 8. 变化完成通知
+```
+
 
 ## 快速开始
 
