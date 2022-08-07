@@ -2,7 +2,13 @@
 
 本地代码修改， 实时同步至远端机器
 
+执行过程截图:
+![preview](./preview.jpg)
+
+
 ## 快速开始
+
+> 软件包里有client和server
 
 1. 把程序复制到远端机器，并启动
 
@@ -16,9 +22,6 @@
 ./liveput-mac client -h
 ./liveput-mac client --watch="./local-dir" --ip="远端ip地址"
 ```
-
-示意图：
-![preview](./preview.jpg)
 
 ## doc
 
@@ -52,8 +55,11 @@ Flags:
       --path string   服务端存储的目标目录, 相对当前位置的相对路径或绝对路径
 ```
 
+
+## Todo
 [x] 文件新增
 [x] 文件修改
 [x] 文件删除
 [x] 文件改名
 [ ] Server守护进程
+[ ] Client ignore list
