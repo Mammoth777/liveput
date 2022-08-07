@@ -2,8 +2,8 @@
 
 本地代码修改， 实时同步至远端机器
 
-执行过程截图:
-![preview](./preview.jpg)
+功能大意:
+![preview](./preview.png)
 
 ```sequence
 Note left of Watcher: 0. 同步Server文件变化？\nemmm还没想好
