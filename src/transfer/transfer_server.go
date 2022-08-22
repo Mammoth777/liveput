@@ -38,7 +38,14 @@ func (s *TransferServer) Start() error {
 			s.log.Println("accept err: ", err)
 			continue
 		}
-		go s.handleConn(conn)
+		go func() {
+			defer func() {
+				if err := recover(); err != nil {
+					log.Println("server err: ", err)
+				}
+			}()
+			s.handleConn(conn)
+		}()
 	}
 }
 

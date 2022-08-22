@@ -30,7 +30,6 @@ var (
 			// do stuff here
 			client := transfer.NewTransferClient(serverIp, serverPort)
 			fw := filewatcher.NewFileWatcher(rootWatchedDir, client)
-			// fw := filewatcher.NewFileWatcher("./target-files")
 			fw.Start()
 		},
 	}

@@ -9,14 +9,14 @@
 
 ```sequence
 Note left of Watcher: 0. 同步Server文件变化？\nemmm还没想好
-Watcher -> Client : 1. 文件变化通知
-Client  -> Client : 2. 过滤忽略文件
-Client  -> Server : 3. 文件变化通知
-Server  -> Server : 4. 文件锁查询
-Server  -> Client : 5. 确认变化通知
-Client  ->> Server : 6. 文件内容传输
-Server  -> Server : 7. 变更文件
-Server  -> Client : 8. 变化完成通知
+Watcher -> Client   : 1. 文件变化通知
+Client  -> Client   : 2. 过滤忽略文件
+Client  -> Server   : 3. 文件变化通知
+Server  -> Server   : 4. 文件锁查询
+Server  -> Client   : 5. 确认变化通知
+Client  ->> Server  : 6. 文件内容传输
+Server  -> Server   : 7. 变更文件
+Server  -> Client   : 8. 变化完成通知
 ```
 
 
@@ -36,13 +36,12 @@ Server  -> Client : 8. 变化完成通知
 ./liveput-mac client -h
 ./liveput-mac client --watch="./local-dir" --ip="远端ip地址"
 ```
-
-**🎯 完成！**
+**🎯 完成啦！**
 
 ## doc
 
 ### 客户端
-liveput 通过tcp实时同步文件
+liveput 通过tcp实时同步文件.
 
 ```bash
 ➜  live-put ./release/liveput-mac client -h                                          
@@ -61,6 +60,18 @@ Flags:
   -w, --watch string   要监听的相对路径(当前目录)或绝对路径
 ```
 
+#### config.yaml
+
+程序会在当前目录寻找`./config/config.yaml`或`./config.yaml`
+
+- ignore: 配置忽略文件和忽略目录
+
+```yaml
+ignore:
+  - ./target-files/a.txt
+  - ./target-files/d/
+```
+
 ### 服务端
 
 接收来自client端的文件
@@ -75,7 +86,6 @@ Aliases:
 Flags:
   -h, --help          help for server
   -p, --path string   服务端存储的目标目录, 相对当前位置的相对路径或绝对路径
-➜  live-put git:(main) ✗ go run main.go c -h
 ```
 
 
@@ -88,9 +98,14 @@ Flags:
 
 [x] 文件改名
 
-[ ] Server守护进程
+[x] Client ignore list
 
-[ ] Client ignore list
+[ ] Server 守护进程
+
+[ ] Server change log
+
+[ ] Server 文件锁
+  
 
 ## 对作者的问题
 

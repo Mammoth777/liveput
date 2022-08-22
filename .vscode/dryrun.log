@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/houjiaqi/work/learning/go/live-put'
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ./release/liveput-linux main.go
+make: Leaving directory `/Users/houjiaqi/work/learning/go/live-put'
+ 
